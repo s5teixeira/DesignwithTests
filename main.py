@@ -1,3 +1,4 @@
+from typing import List
 
 
 class Item:
@@ -8,6 +9,16 @@ class Item:
 
 
 
+class Checkout:
+    def calculate_total(self, state: str, items: List[Item]):
+        tax_rate = 0.0
+        total = 0.0
+        if state == 'NJ':
+            tax_rate = 0.066
+        elif state == 'PA':
+            tax_rate = 0.06
+        if state not in ['DE','NJ','PA']:
+            raise ValueError('Invalid State, please try again')
 
 
 
@@ -15,7 +26,8 @@ class Item:
 
 
 
-if __name__ == '__main__':
-  #  main()
+
+
+
 
 
