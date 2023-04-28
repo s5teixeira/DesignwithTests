@@ -26,3 +26,10 @@ def test_EmptyCart():
     assert checkout.calculate_total('PA', []) == 0
     assert checkout.calculate_total('DE', []) == 0
 
+
+def test_MultipleItemsInCart():
+    checkout = Checkout()
+    assert checkout.calculate_total('NJ', [Item('Apple', 0.75, 'Wic Eligible food'), Item('Milk', 2.50, 'Wic Eligible food')]) == 3.25
+    assert checkout.calculate_total('PA', [Item('Shirt', 20.00, 'Clothing'), Item('Pants', 30.00, 'Clothing')]) == 50.00
+    assert checkout.calculate_total('DE', [Item('Shirt', 15.00, 'everything else'), Item('Mug', 5.00, 'everything else')]) == 20.00
+
