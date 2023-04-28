@@ -19,3 +19,10 @@ def test_NJ_Fur():
     checkout = Checkout()
     items = [Item('Fur coat', 500.0, 'Clothing')]
     assert checkout.calculate_total('NJ', items) == 533.0
+
+def test_EmptyCart():
+    checkout = Checkout()
+    assert checkout.calculate_total('NJ', []) == 0
+    assert checkout.calculate_total('PA', []) == 0
+    assert checkout.calculate_total('DE', []) == 0
+
